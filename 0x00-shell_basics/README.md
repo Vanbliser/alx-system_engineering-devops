@@ -29,4 +29,7 @@
 * 7-movethatfile
   : Move the file betty from /tmp/ to /tmp/my_first_directory
 
-* .
+* 8-firstdelete
+  : Delete the file betty. The file betty is in /tmp/my_first_directory
+
+* 
