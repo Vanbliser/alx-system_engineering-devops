@@ -1,2 +1,3 @@
-## PROJECT: 0x00. Shell, basic
-:    In this project we cover topics relating to shell
+# alx-system_engineering-devops
+This repository contains the following project
+* The "0x00. Shell, basics" Project
