@@ -1,1 +1,10 @@
-A script that prints working directory
+## 0x00. Shell, basics
+
+### This project contains the following scripts
+
+* 0-current_working_directory
+  :	A script that prints the absolute path name of the current working directory.
+
+* 1-listit
+  :	Display the contents list of your current directory.	
+
