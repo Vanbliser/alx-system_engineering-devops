@@ -50,4 +50,62 @@ Requirements:
 
 You must use the while loop (for and until are forbidden)
 You must use the if, elif and else statements
-</pre> 
+</pre>
+
+* 6-superstitious_numbers: Write a Bash script that displays numbers from 1 to 20 and:
+<pre>
+displays 4 and then bad luck from China for the 4th loop iteration
+displays 9 and then bad luck from Japan for the 9th loop iteration
+displays 17 and then bad luck from Italy for the 17th loop iteration
+Requirements:
+
+You must use the while loop (for and until are forbidden)
+You must use the case statement
+</pre>
+
+* 7-clock: Write a Bash script that displays the time for 12 hours and 59 minutes:
+<pre>
+display hours from 0 to 12
+display minutes from 1 to 59
+Requirements:
+
+You must use the while loop (for and until are forbidden)
+Note that in this example, we only display the first 70 lines using the head command.
+</pre>
+
+* 8-for_ls: Write a Bash script that displays:
+<pre>
+The content of the current directory
+In a list format
+Where only the part of the name after the first dash is displayed (refer to the example)
+Requirements:
+
+You must use the for loop (while and until are forbidden)
+Do not display hidden files
+</pre>
+
+* 9-to_file_or_not_to_file: Write a Bash script that gives you information about the school file.
+<pre>
+Requirements:
+
+You must use if and, else (case is forbidden)
+Your Bash script should check if the file exists and print:
+if the file exists: school file exists
+if the file does not exist: school file does not exist
+If the file exists, print:
+if the file is empty: school file is empty
+if the file is not empty: school file is not empty
+if the file is a regular file: school is a regular file
+if the file is not a regular file: (nothing)
+</pre>
+
+* 10-fizzbuzz: Write a Bash script that displays numbers from 1 to 100.
+<pre>
+Requirements:
+
+Displays FizzBuzz when the number is a multiple of 3 and 5
+Displays Fizz when the number is multiple of 3
+Displays Buzz when the number is a multiple of 5
+Otherwise, displays the number
+In a list format
+</pre>
