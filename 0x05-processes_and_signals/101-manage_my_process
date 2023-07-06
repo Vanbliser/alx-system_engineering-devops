@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# a Bash (init) script that manages manage_my_process
+
+PO=$1
+if [[ "$PO" = "start" ]];then
+	mkdir -p /var/run/
+	./manage_my_process &> /dev/null &
+	echo "$!" > /var/run/my_process.pid
+	echo "manage_my_process started"
+elif [[ "$PO" = "stop" ]];then
+	xargs kill < "/var/run/my_process.pid"
+	rm -rf /var/run/my_process.pid
+	echo "manage_my_process stopped"
+elif [[ "$PO" = "restart" ]];then
+	xargs kill < "/var/run/my_process.pid"
+	rm -rf /var/run/my_process.pid
+	mkdir -p /var/run/
+	./manage_my_process &> /dev/null &
+	echo "$!" > /var/run/my_process.pid
+	echo "manage_my_process restarted"
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi
