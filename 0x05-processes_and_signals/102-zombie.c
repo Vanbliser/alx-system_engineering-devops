@@ -12,7 +12,6 @@ int infinite_while(void);
  */
 int main(void)
 {
-	int i;
 	pid_t child_pid;
 
 	child_pid = fork();
