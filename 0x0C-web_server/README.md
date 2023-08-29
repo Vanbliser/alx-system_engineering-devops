@@ -35,6 +35,7 @@ Requirement:
 provide the domain name only (example: foobar.tech), no subdomain (example: www.foobar.tech)
 configure your DNS records with an A entry so that your root domain points to your web-01 IP address Warning: the propagation of your records can take time (~1-2 hours)
 go to your profile and enter your domain in the Project website url field
+</pre>
 
 * 3-redirection: a script that configure redirection in your nginx server
 <pre>
