@@ -45,7 +45,7 @@ Requirements:
 3. Using what you did with 1-install_nginx_web_server, write 3-redirection so that it<br>&nbsp;&nbsp;&nbsp;configures a brand new Ubuntu machine to the requirements asked in this task
 </pre>
 
-* 4-not_found_page_404: Configure your Nginx server to have a custom 404 page that <br>&nbsp;&nbsp;contains the string Ceci n'est pas une page.
+* 4-not_found_page_404: Configure your Nginx server to have a custom 404 page that<br>&nbsp;contains the string Ceci n'est pas une page.
 <pre>
 Requirements:
 
