@@ -1,31 +1,17 @@
 #!/usr/bin/env bash
 # a script that installs and configures nginx server to return Hello World!, and redirect /redirect_me to youtube
 
-apt-get update
-apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html/
-sudo chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
-SERVER_CONFIG=\
-"server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-	server_name _;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
-	}
-}"
+sudo dpkg -l nginx > /dev/null 2>&1 # check if nginx is installed already
 
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
-
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
-else
-	service nginx restart
+if [[ "$?" == 1 ]]; then # if not installed, then install nginx
+	sudo apt-get update -y
+	sudo apt-get install -y nginx
 fi
+
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null # create a file with the text Hello World!
+
+COMMENT='# Permanent redirect'
+REDIRECT='\trewrite ^/redirect_me/?$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;'
+sudo sed -i "/server_name _;/a\\\n\n$COMMENT\n$REDIRECT" /etc/nginx/sites-available/default
+
+sudo service nginx start # start the server if not already started
