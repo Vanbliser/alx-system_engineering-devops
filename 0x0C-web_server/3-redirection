@@ -7,6 +7,6 @@ if [[ "$?" == 1 ]]; then # if not installed, then install nginx
 	sudo apt-get install -y nginx
 fi
 echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null # create a file with the text Hello World!
-redirect="\tserver_name _;\n\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "s/server_name _;/$redirect" /etc/nginx/sites-available/default
+redirect="\trewrite ^/redirect_me https://www.youtube.com permanent;"
+sudo sed -i "/server_name;/a\\$redirect" /etc/nginx/sites-available/default
 sudo service nginx start # start the server if not already started
