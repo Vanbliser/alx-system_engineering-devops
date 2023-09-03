@@ -20,8 +20,7 @@ use your Ubuntu vagrant machine or any other Linux machine.
 - Pull and run the Docker image sylvainkalache/264-1 with the command
 &nbsp;&nbsp;docker run -p 2222:22 -d -ti sylvainkalache/264-1
 - Find a password dictionary (you might need multiple of them)
-- Install and use hydra to try to brute force the account:
-&nbsp;&nbsp;sylvain via SSH on the Docker container
+- Install and use hydra to try to brute force the account: sylvain via SSH on the Docker container
 &nbsp;&nbsp;sudo hydra -l sylvain -P rockyou.txt ssh://127.0.0.1:2222
 - Because the Docker container is running locally, hydra should access the
 &nbsp;&nbsp;SSH account via IP 127.0.0.1 and port 2222
