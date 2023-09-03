@@ -2,18 +2,18 @@
 
 This project contains the following tasks:
 
-###### 0. ARP spoofing and sniffing unencrypted traffic: In this task, we will be sniffing<br>&nbsp;&nbsp;unencrypted traffic and getting information out of it.
+#### 0. ARP spoofing and sniffing unencrypted traffic: In this task, we will be sniffing<br>&nbsp;&nbsp;&nbsp;unencrypted traffic and getting information out of it.
 <pre>
-Using SendGrid email provider to send an email using telnet, and using the provided<br>
-user_authenticating_into_server script that performs authentication,<br>
-your mission is to execute user_authenticating_into_server locally on your machine and,<br>
-using tcpdump, sniff the network to find my password. Once you find it,<br>
-paste the password in your answer file 0-sniffing.<br><br>
+Using SendGrid email provider to send an email using telnet, and using the provided
+user_authenticating_into_server script that performs authentication,
+your mission is to execute user_authenticating_into_server locally on your machine and,
+using tcpdump, sniff the network to find my password. Once you find it,
+paste the password in your answer file 0-sniffing.<br>
 This script will not work on a Docker container or Mac OS, use your Ubuntu vagrant machine or any other Linux machine.
 </pre>
 
 
-###### 1. Dictionary attack: In this task, you will be using a dictionary attack to find a<br>&nbsp;&nbsp;password of an ssh account.
+#### 1. Dictionary attack: In this task, you will be using a dictionary attack to find a<br>&nbsp;&nbsp;&nbsp;password of an ssh account.
 <pre>
 - Install Docker on your machine Ubuntu
 - Pull and run the Docker image sylvainkalache/264-1 with the command
