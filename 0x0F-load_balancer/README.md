@@ -10,10 +10,8 @@
 - Your Bash script must pass Shellcheck (version 0.3.7) without any error;
 - The first line of all your Bash scripts should be exactly #!/usr/bin/env bash;
 - The second line of all your Bash scripts should be a comment explaining what is the script doing
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
+
 ### This project contains the following mandatory taskS:
 
 #### 0. Double the number of webservers
