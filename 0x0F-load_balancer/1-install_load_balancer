@@ -32,6 +32,9 @@ elif [[ ! -f /etc/haproxy/haproxy.cfg.original_copy ]]; then
 	sudo cp -a /etc/haproxy/haproxy.cfg{,.original_copy}
 fi
 
+# configure hostname
+sudo sed -i "/preserve_hostname/ s/false/true/" /etc/cloud/cloud.cfg 
+
 # configure haproxy
 web1='54.174.230.152'
 web2='54.160.103.251'
