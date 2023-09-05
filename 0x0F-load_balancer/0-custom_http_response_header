@@ -14,14 +14,14 @@ fi
 echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null # create a file with the text Hello World!
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html > /dev/null # create the error page file
 
-COMMENT='# Permanent redirect'
+COMMENT='\t# Permanent redirect'
 REDIRECT='\trewrite ^/redirect_me/?$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;'
-ERROR_COMMENT='# Custom error page'
+ERROR_COMMENT='\t# Custom error page'
 CUSTOM_ERROR='\terror_page 404 /custom_404.html;\n\tlocation = /custom404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}'
-sudo sed -i "/server_name _;/a\\\n\n$COMMENT\n$REDIRECT\n\n$ERROR_COMMENT\n$CUSTOM_ERROR" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a\\\n$COMMENT\n$REDIRECT\n\n$ERROR_COMMENT\n$CUSTOM_ERROR" /etc/nginx/sites-available/default
 
 HEADER_COMMENT='\t# Custom header'
 CUSTOM_HEADER='\tadd_header X-Served-By'
-sudo sed -i "/server_name _/a\\\n\n$HEADER_COMMENT\n$CUSTOM_HEADER $HOSTNAME;" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _/a\\\n$HEADER_COMMENT\n$CUSTOM_HEADER $HOSTNAME;" /etc/nginx/sites-available/default
 
 sudo service nginx restart # start the server if not already started
