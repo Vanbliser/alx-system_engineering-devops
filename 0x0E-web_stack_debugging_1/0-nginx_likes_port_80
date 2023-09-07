@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# A script to automate the changes I made to make my server working
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo service nginx start
