@@ -2,30 +2,16 @@
 # a Bash script that will display information about subdomains.
 # shellcheck disable=SC2086
 
-
-DOMAIN=$1
-SUBDOMAIN=$2
-RECORDTYPE=''
-DESTINATION=''
-
 subdomainInfo () {
-	if [[ -z "$SUBDOMAIN" ]]; then
-		RESULTLINE=$(dig "$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')
-		RECORDTYPE=$(echo "$RESULTLINE" | awk '{print $4}')
-		DESTINATION=$(echo "$RESULTLINE" | awk '{print $5}')
-	else
-		RESULTLINE=$(dig "$SUBDOMAIN.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')
-		RECORDTYPE=$(echo "$RESULTLINE" | awk '{print $4}')
-		DESTINATION=$(echo "$RESULTLINE" | awk '{print $5}')
-	fi
+	RESULTLINE=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')
+	RECORDTYPE=$(echo "$RESULTLINE" | awk '{print $4}')
+	DESTINATION=$(echo "$RESULTLINE" | awk '{print $5}')
+	echo "The subdomain $2 is a $RECORDTYPE record and points to $DESTINATION"
 }
-
-if [[ -n "$SUBDOMAIN" ]]; then
-	subdomainInfo "$DOMAIN" "$SUBDOMAIN"
-	echo "The subdomain $SUBDOMAIN is a $RECORDTYPE record and points to $DESTINATION"
+if [[ -n "$2" ]]; then # if subdomain exist
+	subdomainInfo "$1" "$2"
 else 
 	for SUBDOMAIN in www lb-01 web-01 web-02; do
-		subdomainInfo "$DOMAIN" "$SUBDOMAIN"
-		echo "The subdomain $SUBDOMAIN is a $RECORDTYPE record and points to $DESTINATION"
+		subdomainInfo "$1" "$SUBDOMAIN"
 	done
 fi
