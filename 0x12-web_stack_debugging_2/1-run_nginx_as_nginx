@@ -6,4 +6,6 @@ sed -i "/#user www-data;/a \\user nginx;" /etc/nginx/nginx.conf
 sed -i "/listen 80 default_server;/ s/80/8080/" /etc/nginx/sites-available/default
 sed -i "/listen \[::\]:80 default_server ipv6only=on;/ s/80/8080/" /etc/nginx/sites-available/default
 pkill apache2
+service nginx start
+service nginx stop
 sudo -u nginx service nginx start 
