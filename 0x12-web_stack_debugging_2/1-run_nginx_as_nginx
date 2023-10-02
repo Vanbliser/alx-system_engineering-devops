@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # script to configure nginx to run with non-root
 
+# chown -R nginx:nginx /var/log/nginx
+# chown -R nginx:nginx /etc/ngix
+# chown -R nginx:nginx /usr/share/nginx
+# chown -R nginx:nginx /run/nginx.pid
 chmod 644 /etc/nginx/nginx.conf
 sed -i "/#user www-data;/a \\user nginx;" /etc/nginx/nginx.conf
-sed -i "/listen 80 default_server;/ s/80/8080/" /etc/nginx/sites-available/default
-sed -i "/listen \[::\]:80 default_server ipv6only=on;/ s/80/8080/" /etc/nginx/sites-available/default
+sed -i "s/80/8080/" /etc/nginx/sites-available/default
 pkill apache2
-service nginx start
-service nginx stop
 sudo -u nginx service nginx start 
